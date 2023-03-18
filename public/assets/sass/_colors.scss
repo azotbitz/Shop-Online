@@ -1,0 +1,192 @@
+$blue-dark: #001f71;
+$blue-light: #002685;
+$blue-light2: #002280;
+$font-white: #fafafa;
+$purple-light: #de33fe;
+$purple-dark: #854fc8;
+$skiey: #16b8c3;
+$green: #80e622;
+$green-dark: #29a71a;
+$silver: #7d7d7d;
+
+$colorpig: #fd749b;
+$colorpurple: #f41178;
+$colorwhite: #ffffff;
+$coloryellow: #fcee21;
+$colorgreen: #0ed71c;
+$colorblue: #2787f5;
+$colororange: #ff5c00;
+$colorpurple2: #854fc8;
+$colorskiey: #67dffd;
+$colorsilver: #7d7d7d;
+$colorblack: #000000;
+$colorbeige: #edcd96;
+
+$green-gradient: linear-gradient(180deg, #07C4C4 0%, #004D3A 100%);
+
+$pig-gradient: linear-gradient(180deg, #D583FC 0%, #B01660 100%);
+
+$rainbow-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #281ac8 -35.51deg,
+    #de33fe 14.15deg,
+    #59c4c8 44.5deg,
+    #77e0e4 123.75deg,
+    #ffaf10 171.3deg,
+    #c847f0 188.73deg,
+    #a0fb4e 224.01deg,
+    #281ac8 324.49deg,
+    #de33fe 374.15deg);
+
+$yellow-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #a48900 -35.51deg,
+    #f0e947 10.17deg,
+    #d6b954 44.5deg,
+    #b6ae00 123.75deg,
+    #e8ed01 171.3deg,
+    #f5f955 188.73deg,
+    #d0d401 224.01deg,
+    #a48900 324.49deg,
+    #f0e947 370.17deg);
+
+$white-gradient-btn2: conic-gradient(from 180deg at 50% 50%,
+    #dcdcdc -35.51deg,
+    #cccccc 10.17deg,
+    #b6b6b6 44.5deg,
+    #b8b8b8 123.75deg,
+    #d1d1d1 171.3deg,
+    #aaaaaa 188.73deg,
+    #c4c4c4 224.01deg,
+    #dcdcdc 324.49deg,
+    #cccccc 370.17deg);
+
+$skiey-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #08c5e2 -35.51deg,
+    #8ff5fd 14.15deg,
+    #81e5f5 44.5deg,
+    #2ccbeb 123.75deg,
+    #97f9ff 159.7deg,
+    #36def5 188.73deg,
+    #b5f2ff 224.01deg,
+    #08c5e2 324.49deg,
+    #8ff5fd 374.15deg);
+
+$aqua-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #009edd -35.51deg,
+    #84f0ff 14.15deg,
+    #34b6ff 44.5deg,
+    #6cf4ff 123.75deg,
+    #01dfed 171.3deg,
+    #9dffed 188.73deg,
+    #4afffc 224.01deg,
+    #009edd 324.49deg,
+    #84f0ff 374.15deg);
+
+$silver-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #565656 -35.51deg,
+    #3e4342 14.15deg,
+    #333333 44.5deg,
+    #5d5d5d 123.75deg,
+    #565656 171.3deg,
+    #7d7d7d 188.73deg,
+    #2c2b2e 224.01deg,
+    #565656 324.49deg,
+    #3e4342 374.15deg);
+
+$white-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #efedf3 -35.51deg,
+    #f7f7f7 14.15deg,
+    #c1c1c1 44.5deg,
+    #e7e7e7 123.75deg,
+    #cfcfcf 171.3deg,
+    #e4e4e4 188.73deg,
+    #cecece 224.01deg,
+    #efedf3 324.49deg,
+    #f7f7f7 374.15deg);
+
+$orange-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #d94400 -35.51deg,
+    #ff9565 14.15deg,
+    #dc4805 44.5deg,
+    #f57236 123.75deg,
+    #ffb897 159.7deg,
+    #f57236 188.73deg,
+    #ffccb5 224.01deg,
+    #d94400 324.49deg,
+    #ff9565 374.15deg);
+
+$blue-gradient-btn-light: conic-gradient(from 180deg at 50% 50%,
+    #0633b3 -35.51deg,
+    #4980ff 14.15deg,
+    #0034b9 44.5deg,
+    #0b4ae4 123.75deg,
+    #4399ff 171.3deg,
+    #0038ff 188.73deg,
+    #3977ff 224.01deg,
+    #0633b3 324.49deg,
+    #4980ff 374.15deg);
+
+$blue-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #00278f -35.51deg,
+    #345cc5 10.17deg,
+    #00278f 44.5deg,
+    #00278f 123.75deg,
+    #2e57c5 171.3deg,
+    #00278f 188.73deg,
+    #234ec1 224.01deg,
+    #00278f 324.49deg,
+    #345cc5 370.17deg);
+
+$lime-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #2cf388 -35.51deg,
+    #08ad4a 10.17deg,
+    #25ff8a 44.5deg,
+    #00c85d 123.75deg,
+    #7dffba 171.3deg,
+    #00c85d 188.73deg,
+    #058f46 224.01deg,
+    #2cf388 324.49deg,
+    #08ad4a 370.17deg);
+
+$green-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #a0fb4e -35.51deg,
+    #b5ff72 14.15deg,
+    #5cc200 44.5deg,
+    #a0fb4e 123.75deg,
+    #73e30d 159.7deg,
+    #a0fb4e 188.73deg,
+    #66d700 224.01deg,
+    #a0fb4e 324.49deg,
+    #b5ff72 374.15deg);
+
+$purple-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #590184 -35.51deg,
+    #c847f0 10.17deg,
+    #8426a9 44.5deg,
+    #7f00a9 123.75deg,
+    #b201ed 171.3deg,
+    #d055f9 188.73deg,
+    #a001d4 224.01deg,
+    #590184 324.49deg,
+    #c847f0 370.17deg);
+
+$purple2-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #c80068 -35.51deg,
+    #ff7ac0 14.15deg,
+    #ca006a 44.5deg,
+    #e40077 123.75deg,
+    #ff84c4 171.3deg,
+    #e31983 188.73deg,
+    #ff62b4 224.01deg,
+    #c80068 324.49deg,
+    #ff7ac0 374.15deg);
+
+$red-gradient-btn: conic-gradient(from 180deg at 50% 50%,
+    #a90022 -35.51deg,
+    #ff6786 14.15deg,
+    #ad0022 44.5deg,
+    #ff7590 123.75deg,
+    #ed012b 171.3deg,
+    #ff7a96 188.73deg,
+    #e2163e 224.01deg,
+    #a90022 324.49deg,
+    #ff6786 374.15deg);
