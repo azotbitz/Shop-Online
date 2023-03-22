@@ -4,6 +4,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <>
+            <div id='footer'>
         <div className="container">
             <div className="row">
                 <div className="col-12">
@@ -103,6 +104,7 @@ const Footer = () => {
                         </label>
                     </li>
                 </ul>
+            </div>
             </div>
         </>
     )

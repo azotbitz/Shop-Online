@@ -2149,7 +2149,7 @@ progress {
           margin-inline-end: 0.75rem;
   color: var(--bs-body-color);
   background-color: var(--bs-tertiary-bg);
-  pointer-events: none;
+  pointer-events: auto;
   border-color: inherit;
   border-style: solid;
   border-width: 0;
@@ -2377,12 +2377,12 @@ textarea.form-control-lg {
   --bs-form-check-bg-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/%3e%3c/svg%3e");
 }
 .form-check-input:disabled {
-  pointer-events: none;
+  pointer-events: auto;
   filter: none;
   opacity: 0.5;
 }
 .form-check-input[disabled] ~ .form-check-label, .form-check-input:disabled ~ .form-check-label {
-  cursor: default;
+  cursor: pointer;
   opacity: 0.5;
 }
 
@@ -2427,10 +2427,10 @@ textarea.form-control-lg {
 .btn-check {
   position: absolute;
   clip: rect(0, 0, 0, 0);
-  pointer-events: none;
+  pointer-events: auto;
 }
 .btn-check[disabled] + .btn, .btn-check:disabled + .btn {
-  pointer-events: none;
+  pointer-events: auto;
   filter: none;
   opacity: 0.65;
 }
@@ -2520,7 +2520,7 @@ textarea.form-control-lg {
   border-radius: 1rem;
 }
 .form-range:disabled {
-  pointer-events: none;
+  pointer-events: auto;
 }
 .form-range:disabled::-webkit-slider-thumb {
   background-color: var(--bs-secondary-color);
@@ -2559,7 +2559,7 @@ textarea.form-control-lg {
   text-align: start;
   text-overflow: ellipsis;
   white-space: nowrap;
-  pointer-events: none;
+  pointer-events: auto;
   border: var(--bs-border-width) solid transparent;
   transform-origin: 0 0;
   transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
@@ -2964,7 +2964,7 @@ textarea.form-control-lg {
 }
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
   color: var(--bs-btn-disabled-color);
-  pointer-events: none;
+  pointer-events: auto;
   background-color: var(--bs-btn-disabled-bg);
   border-color: var(--bs-btn-disabled-border-color);
   opacity: var(--bs-btn-disabled-opacity);
@@ -3594,7 +3594,7 @@ textarea.form-control-lg {
 }
 .dropdown-item.disabled, .dropdown-item:disabled {
   color: var(--bs-dropdown-link-disabled-color);
-  pointer-events: none;
+  pointer-events: auto;
   background-color: transparent;
 }
 
@@ -3765,8 +3765,8 @@ textarea.form-control-lg {
 }
 .nav-link.disabled {
   color: var(--bs-nav-link-disabled-color);
-  pointer-events: none;
-  cursor: default;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .nav-tabs {
@@ -4701,7 +4701,7 @@ textarea.form-control-lg {
 }
 .page-link.disabled, .disabled > .page-link {
   color: var(--bs-pagination-disabled-color);
-  pointer-events: none;
+  pointer-events: auto;
   background-color: var(--bs-pagination-disabled-bg);
   border-color: var(--bs-pagination-disabled-border-color);
 }
@@ -4985,7 +4985,7 @@ textarea.form-control-lg {
 }
 .list-group-item.disabled, .list-group-item:disabled {
   color: var(--bs-list-group-disabled-color);
-  pointer-events: none;
+  pointer-events: auto;
   background-color: var(--bs-list-group-disabled-bg);
 }
 .list-group-item.active {
@@ -5305,10 +5305,10 @@ textarea.form-control-lg {
   opacity: var(--bs-btn-close-focus-opacity);
 }
 .btn-close:disabled, .btn-close.disabled {
-  pointer-events: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  pointer-events: auto;
+  -webkit-user-select: auto;
+     -moz-user-select: auto;
+          user-select: auto;
   opacity: var(--bs-btn-close-disabled-opacity);
 }
 
@@ -5361,7 +5361,7 @@ textarea.form-control-lg {
   width: -moz-max-content;
   width: max-content;
   max-width: 100%;
-  pointer-events: none;
+  pointer-events: auto;
 }
 .toast-container > :not(:last-child) {
   margin-bottom: var(--bs-toast-spacing);
@@ -5426,7 +5426,7 @@ textarea.form-control-lg {
   position: relative;
   width: auto;
   margin: var(--bs-modal-margin);
-  pointer-events: none;
+  pointer-events: auto;
 }
 .modal.fade .modal-dialog {
   transition: transform 0.3s ease-out;
@@ -6773,7 +6773,7 @@ textarea.form-control-lg {
   display: inline-block;
   min-height: 1em;
   vertical-align: middle;
-  cursor: wait;
+  cursor: pointer;
   background-color: currentcolor;
   opacity: 0.5;
 }
@@ -8637,7 +8637,7 @@ textarea.form-control-lg {
 }
 
 .pe-none {
-  pointer-events: none !important;
+  pointer-events: auto !important;
 }
 
 .pe-auto {
@@ -12066,7 +12066,6 @@ textarea.form-control-lg {
 
 .open--main-menu {
   position: fixed;
-  display: none;
   left: 0;
   top: 0;
   z-index: 99999999;
@@ -12205,7 +12204,7 @@ textarea.form-control-lg {
   width: 60px;
   border-radius: 50%;
   background: #16b8c3;
-  cursor: ew-resize;
+  cursor: pointer;
   box-shadow: 0 0 2px 0 #555;
   -webkit-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
@@ -12603,7 +12602,7 @@ textarea.form-control-lg {
   border-radius: 50px;
 }
 #calendar--popup #date-container .table .prev {
-  cursor: auto;
+  cursor: pointer;
   color: #7d7d7d;
 }
 #calendar--popup #date-container .table .red {
@@ -12891,7 +12890,6 @@ textarea.form-control-lg {
 }
 .wrapper::after {
   z-index: 1;
-  content: "";
   position: absolute;
   left: 0;
   top: 0;

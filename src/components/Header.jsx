@@ -1,37 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {userSelector} from "../redux/reducers/userReducer/userSelector";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import MenuIcon from '@mui/icons-material/Menu';
-import Drawer from '@mui/material/Drawer';
-import {logoutInitiate} from "../redux/reducers/userReducer/userReducer";
-import {
-    AppBar,
-    Box,
-    Button,
-    Divider, IconButton,
-    List,
-    ListItem,
-    ListItemButton,
-    ListItemText,
-    Toolbar,
-    Typography
-} from "@mui/material";
 import CustomLink from "./CustomLink";
 
 const Header = (props) => {
     const user = useSelector(userSelector);
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const drawerWidth = 240;
-    const navItems = [
-        {btn: <CustomLink to={'/'}>Contact Page</CustomLink>, id: 1},
-        {btn: <CustomLink to={'add/:id'}>Add Contact</CustomLink>, id: 2},
-        {btn: <CustomLink to={'/todos'}>Todos</CustomLink>, id: 3},
-        {btn: <CustomLink to={'/chats'}>Chats</CustomLink>, id: 4},
-        {btn: <CustomLink to={'/about'}>About</CustomLink>, id: 5}
-    ];
-    const navItems2 = [{btn: <CustomLink to={'/registration'}>Registration</CustomLink>, id: 6}]
+    let mainMenu = document.querySelector("#main--menu");
     const handleAuth = () => {
     //     if(user) {
     //         dispatch(logoutInitiate())
@@ -43,29 +20,19 @@ const Header = (props) => {
     const navToLogin = () => {
         navigate('/login')
     }
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
+    // const { window } = props;
+    // const [menuOpen, setMenuOpen] = useState(true);
 
     const openMainMenu = () => {
-        return null
+        mainMenu.style.display = "flex";
     }
-
     const closeMainMenu = () => {
-        return null
+        mainMenu.style.display = "none";
     }
-    const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
-    };
-    const drawer = (
-        <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        </Box>
-    );
-
-    const container = window !== undefined ? () => window().document.body : undefined;
 
     return (
         <>
-            <div className="open--main-menu" id="main--menu">
+             <div className="open--main-menu" id="main--menu" style={{display: "none"}}>
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
@@ -117,11 +84,13 @@ const Header = (props) => {
                                         <img src="./assets/imgs/instagram.svg" alt="viber"
                                              className="header--btn-image"/></a>
                                     <a href="#" className="header--btn whatsapp">
-                                        <img src="./assets/imgs/whatsapp.svg" alt="viber" className="header--btn-image"/></a>
+                                        <img src="./assets/imgs/whatsapp.svg" alt="viber"
+                                             className="header--btn-image"/></a>
                                     <a href="#" className="header--btn vk">
                                         <img src="./assets/imgs/vk.svg" alt="viber" className="header--btn-image"/></a>
                                     <a href="#" className="header--btn telegram">
-                                        <img src="./assets/imgs/telegram.svg" alt="viber" className="header--btn-image"/></a>
+                                        <img src="./assets/imgs/telegram.svg" alt="viber"
+                                             className="header--btn-image"/></a>
                                     <a href="#" className="header--btn viber">
                                         <img src="./assets/imgs/viber.svg" alt="viber" className="header--btn-image"/>
                                     </a>
@@ -158,8 +127,8 @@ const Header = (props) => {
                     <div className="desktop-nav">
                         <div className="w-100 d-flex">
                             <div className="logotype d-flex justify-content-center align-items-center">
-                                <a href="../index.html"><img src="./assets/imgs/logotype.svg" alt="logotype"
-                                                             className="logotype--img"/></a>
+                                <a href="/"><img src="./assets/imgs/logotype.svg" alt="logotype"
+                                                 className="logotype--img"/></a>
                             </div>
                             <div className="nav">
                                 <div className="nav--row">
@@ -169,7 +138,7 @@ const Header = (props) => {
                                             <span>Выбрать город</span>
                                         </a>
                                     </div>
-                                    <a href="./view/selections.html"
+                                    <a href="/selections"
                                        className="header--btn selection"><span>Подборки</span></a>
                                     <a href="#" className="header--btn bals">1210</a>
                                     <a href="#" className="header--btn notifications">У</a>
@@ -192,7 +161,7 @@ const Header = (props) => {
                                     <a href="#" className="header--btn account">А</a>
                                 </div>
                                 <div className="nav--row pt-2">
-                                    <a href="#" className="header--btn constructor"><span>Виртуальный флорист </span></a>
+                                    <a href="#" className="header--btn constructor"><span>Виртуальный флорист</span></a>
                                     <a href="#" className="header--btn florist"><span>Cоздать букет</span></a>
                                     <a href="#" className="header--btn booking">Срочный заказ</a>
                                     <a href="#" className="header--btn car">
@@ -217,6 +186,8 @@ const Header = (props) => {
                             </div>
                         </div>
                     </div>
+
+
                     <div className="mobile-nav">
                         <div className="w-100 d-flex">
                             <div className="logotype d-flex justify-content-center align-items-center">
@@ -235,7 +206,7 @@ const Header = (props) => {
                                 <a href="#" className="header--btn search">
                                     <img src="../assets/imgs/search.svg" alt="search" className="header--btn-image"/>
                                 </a>
-                                <a href="#" className="header--btn burger">
+                                <a href="#" className="header--btn burger" onClick={openMainMenu}>
                                     <span className="burger--text">М</span>
                                     <div className="burger--lines">
                                         <span></span>
@@ -254,11 +225,13 @@ const Header = (props) => {
                                 <a href="#" className="header--btn instagram">
                                     <img src="../assets/imgs/instagram.svg" alt="viber" className="header--btn-image"/></a>
                                 <a href="#" className="header--btn whatsapp">
-                                    <img src="../assets/imgs/whatsapp.svg" alt="viber" className="header--btn-image"/></a>
+                                    <img src="../assets/imgs/whatsapp.svg" alt="viber"
+                                         className="header--btn-image"/></a>
                                 <a href="#" className="header--btn vk">
                                     <img src="../assets/imgs/vk.svg" alt="viber" className="header--btn-image"/></a>
                                 <a href="#" className="header--btn telegram">
-                                    <img src="../assets/imgs/telegram.svg" alt="viber" className="header--btn-image"/></a>
+                                    <img src="../assets/imgs/telegram.svg" alt="viber"
+                                         className="header--btn-image"/></a>
                                 <a href="#" className="header--btn viber">
                                     <img src="../assets/imgs/viber.svg" alt="viber" className="header--btn-image"/>
                                 </a>
@@ -268,7 +241,7 @@ const Header = (props) => {
                 </div>
             </div>
         </>
-    );
+    )
 }
 
 export default Header;

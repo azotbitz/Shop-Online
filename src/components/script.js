@@ -114,15 +114,7 @@ const addProductToBasket = function (candidate) {
   }
 };
 
-let mainMenu = document.querySelector("#main--menu");
 
-const closedMainMenu = function () {
-  mainMenu.style.display = "none";
-};
-
-const openMainMenu = function () {
-  mainMenu.style.display = "flex";
-};
 
 const openProductPopUp = function (subject) {
   subject.style.display = "flex";
