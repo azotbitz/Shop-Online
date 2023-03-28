@@ -15,6 +15,7 @@ import {
     registerStart,
     registerSuccess
 } from "../../actions";
+import {auth} from '../../../components/Firebase';
 
 const initialState = {
     loading: false,
@@ -58,38 +59,38 @@ export const userReducer = (state = initialState, action) => {
     }
 }
 
- export const registerInitiate = (email, password, nickname) => {
-//     return (dispatch) => {
-//         dispatch(registerStart())
-//         auth
-//             .createUserWithEmailAndPassword(email, password)
-//             .then(({user}) => {
-//                 user.updateProfile({
-//                     nickname
-//                 })
-//                 dispatch(registerSuccess(user))
-//             })
-//             .catch((err) => dispatch(registerError(err)))
-//     }
+ export const registerInitiate = (email, password, date) => {
+    return (dispatch) => {
+        dispatch(registerStart())
+        auth
+            .createUserWithEmailAndPassword(email, password)
+            .then(({user}) => {
+                user.updateProfile({
+                    date
+                })
+                dispatch(registerSuccess(user))
+            })
+            .catch((err) => dispatch(registerError(err)))
+    }
  }
 
  export const loginInitiate = (email, password) => {
-//     return (dispatch) => {
-//         dispatch(loginStart())
-//         auth
-//             .signInWithEmailAndPassword(email, password)
-//             .then(({user}) => {
-//                 dispatch(loginSuccess(user))})
-//             .catch((err) => dispatch(loginError(err)))
-//     }
+    return (dispatch) => {
+        dispatch(loginStart())
+        auth
+            .signInWithEmailAndPassword(email, password)
+            .then(({user}) => {
+                dispatch(loginSuccess(user))})
+            .catch((err) => dispatch(loginError(err)))
+    }
  }
 //
  export const logoutInitiate = () => {
-//     return (dispatch) => {
-//         dispatch(logoutStart())
-//         auth
-//             .signOut()
-//             .then((response) => dispatch(logoutSuccess()))
-//             .catch((err) => dispatch(logoutError(err)))
-//     }
+    return (dispatch) => {
+        dispatch(logoutStart())
+        auth
+            .signOut()
+            .then((response) => dispatch(logoutSuccess()))
+            .catch((err) => dispatch(logoutError(err)))
+    }
  }

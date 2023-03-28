@@ -12501,8 +12501,8 @@ textarea.form-control-lg {
   border-radius: 20px;
 }
 .card--product .card--image {
-  height: 120px;
-  width: 120px;
+  height: 150px;
+  width: 150px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -12515,16 +12515,33 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 
-.h-500px {
-  height: 500px;
-}
-
 .h-350px {
   height: 350px;
 }
 
-.h-150px {
-  height: 150px;
+.main--image--card--product {
+  height: 500px;
+}
+
+.old--price {
+  font-size: 14px;
+  color: #ffc107;
+  text-decoration: line-through;
+}
+
+.min--image--card--product {
+  width: 140px;
+  height: 140px;
+}
+
+.min--images {
+  display: flex;
+  justify-content: space-between;
+}
+.min--images .min--image--card--product {
+  padding: 0;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .card--product-100_150 {
@@ -12535,6 +12552,11 @@ textarea.form-control-lg {
 .card--product-50_150 {
   min-width: 50%;
   height: 150px;
+}
+
+.card--product-square {
+  width: 140px;
+  height: 140px;
 }
 
 .card--product-square--150 {
@@ -13012,7 +13034,6 @@ textarea.form-control-lg {
 }
 
 .pop-up {
-  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -13028,7 +13049,7 @@ textarea.form-control-lg {
 }
 .pop-up .message,
 .pop-up .form--login,
-.pop-up .form--ragistration {
+.pop-up .form--registration {
   max-width: 550px;
   background: rgba(0, 28, 104, 0.6666666667);
   border-radius: 20px;
@@ -13040,7 +13061,6 @@ textarea.form-control-lg {
 .wrapper--basket,
 .popup--product-wrapper {
   transition: 0.09s;
-  display: none;
   width: 100%;
   min-height: 100vh;
   -webkit-backdrop-filter: blur(50px);
@@ -13120,11 +13140,20 @@ textarea.form-control-lg {
   top: -30px;
 }
 
+.card--product-icon--text {
+  font-size: 14px;
+}
+
+.card--product--icon {
+  width: 35px;
+  height: 35px;
+}
+
 .select--scale .scale {
   display: flex;
 }
 .select--scale .scale .circle-40 {
-  margin-right: 15px;
+  margin-right: 5px;
 }
 .select--scale .scale .scale--s {
   background: conic-gradient(from 180deg at 50% 50%, #08c5e2 -35.51deg, #8ff5fd 14.15deg, #81e5f5 44.5deg, #2ccbeb 123.75deg, #97f9ff 159.7deg, #36def5 188.73deg, #b5f2ff 224.01deg, #08c5e2 324.49deg, #8ff5fd 374.15deg);

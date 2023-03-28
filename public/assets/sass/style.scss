@@ -1431,7 +1431,7 @@
 
   .message,
   .form--login,
-  .form--ragistration {
+  .form--registration {
     max-width: 550px;
     background: #001c68aa;
     border-radius: 20px;
@@ -1443,7 +1443,6 @@
 .wrapper--basket,
 .popup--product-wrapper {
   transition: 0.09s;
-  display: none;
   width: 100%;
   min-height: 100vh;
   backdrop-filter: blur(50px);

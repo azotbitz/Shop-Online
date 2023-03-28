@@ -25,10 +25,10 @@ const Footer = () => {
                                 <li><a href="#">Популярные вопросы</a></li>
                                 <li><a href="#">Новости и скидки</a></li>
                                 <li><a href="#">Оплата</a></li>
-                                <li><a href="#">О нас</a></li>
-                                <li><a href="#">Договор оферты</a></li>
-                                <li><a href="#">Политика конфеденциальности</a></li>
-                                <li><a href="#">Контакты</a></li>
+                                <li><a href="/about">О нас</a></li>
+                                <li><a href="/offer">Договор оферты</a></li>
+                                <li><a href="/policy">Политика конфеденциальности</a></li>
+                                <li><a href="/contact">Контакты</a></li>
                             </ul>
                             <div className="footer--logotype d-flex justify-content-end align-items-center">
                                 <img src="../assets/imgs/logotype-blue.svg" alt="logotype" className="w-75"/>
@@ -44,18 +44,20 @@ const Footer = () => {
                             </ul>
 
                             <div className="footer--networks d-flex justify-content-between align-items-center">
-                                <a href="#" className="header--btn instagram">
-                                    <img src="../assets/imgs/instagram.svg" alt="viber"
+                                <a href="https://www.instagram.com/beehappy24.ru/"
+                                   className="header--btn instagram">
+                                    <img src="../assets/imgs/instagram.svg" alt="instagram"
                                          className="header--btn-image"/></a>
-                                <a href="#" className="header--btn whatsapp">
-                                    <img src="../assets/imgs/whatsapp.svg" alt="viber"
+                                <a href="https://wa.me/79891970713?text=Мне%20нужен%20букет%20index"
+                                   className="header--btn whatsapp">
+                                    <img src="../assets/imgs/whatsapp.svg" alt="whatsapp"
                                          className="header--btn-image"/></a>
-                                <a href="#" className="header--btn vk">
-                                    <img src="../assets/imgs/vk.svg" alt="viber" className="header--btn-image"/></a>
-                                <a href="#" className="header--btn telegram">
-                                    <img src="../assets/imgs/telegram.svg" alt="viber"
+                                <a href="https://vk.com/id596874506" className="header--btn vk">
+                                    <img src="../assets/imgs/vk.svg" alt="vk" className="header--btn-image"/></a>
+                                <a href="https://tlgg.ru/beehappy24ru" className="header--btn telegram">
+                                    <img src="../assets/imgs/telegram.svg" alt="telegram"
                                          className="header--btn-image"/></a>
-                                <a href="#" className="header--btn viber">
+                                <a href="viber://add?number=79891970713" className="header--btn viber">
                                     <img src="../assets/imgs/viber.svg" alt="viber" className="header--btn-image"/>
                                 </a>
                             </div>

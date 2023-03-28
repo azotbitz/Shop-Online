@@ -1,14 +1,21 @@
 import React from 'react';
+import {useNavigate, Link} from "react-router-dom";
 
 const OrderingPage = () => {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container">
                 <div className="row pt-5">
                     <div className="col-12">
-                        <a className="text-white text-decoration-none back" href="#" onClick="goBack()">
+                        <Link to={'..'} onClick={(e) => {
+                            e.preventDefault();
+                            navigate(-1)}
+                        }>
+                        <a className="text-white text-decoration-none back" href="#">
                             &larr;
                         </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="row">
