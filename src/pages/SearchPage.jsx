@@ -1,6 +1,37 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {getItemsSelector} from "../redux/reducers/itemsReducer/itemsSelector"
+import {loader, error} from "../redux/reducers/itemsReducer/itemsSelector";
+import {loadItems} from "../redux/reducers/itemsReducer/itemsReducer";
+import Search from "../components/Search";
+import Filter from "../components/Filter";
 
 const SearchPage = () => {
+    const items = useSelector(getItemsSelector);
+    const dispatch = useDispatch();
+    const loading = useSelector(loader);
+    const err = useSelector(error);
+
+        useEffect(() => {
+            dispatch(loadItems())}, []
+        )
+
+        if(loading) {
+            return (
+                <div><h2>Loading</h2></div>
+            )
+        }
+
+        if(err) {
+            return (
+                <div>
+                    <h2>Ошибка</h2>
+                    <button onClick={() => dispatch(loadItems())}>Перезагрузить страницу</button>
+                </div>
+            )
+        }
+
+    const data = Object.values(items);
     return (
         <>
             <div className="container">
@@ -9,15 +40,25 @@ const SearchPage = () => {
                         <h2 className="text-white">Поиск</h2>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="col-12">
-                        <div className="search--form">
-                            <input type="text" name="search" className="search--input"/>
-                                <input type="button" value="Поиск" className="white--btn"/>
-                        </div>
-                    </div>
-                </div>
+                <Search items={items}/>
+                <Filter items={items}/>
             </div>
+            {/*<div className="wrapper">*/}
+            {/*    <ul className="card-grid">*/}
+            {/*        {data.map((item) => (*/}
+            {/*            <li key={item.alpha3Code}>*/}
+            {/*                <article className="card">*/}
+            {/*                    <div className="card-image">*/}
+            {/*                        <img src={item.flag.large} alt={item.name} />*/}
+            {/*                    </div>*/}
+            {/*                    <div className="card-content">*/}
+            {/*                        <h2 className="card-name">{item.name}</h2>*/}
+            {/*                    </div>*/}
+            {/*                </article>*/}
+            {/*            </li>*/}
+            {/*            ))}*/}
+            {/*    </ul>*/}
+            {/*</div>*/}
             <div className="container">
                 <div className="row">
                     <div className="col-12">

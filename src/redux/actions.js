@@ -1,24 +1,24 @@
 import {
-    ERROR_TODOS,
-    GET_TODOS,
-    LOADING_TODOS, LOGIN_ERROR,
+    ERROR_ITEMS,
+    GET_ITEMS,
+    LOADING_ITEMS, LOGIN_ERROR,
     LOGIN_START, LOGIN_SUCCESS, LOGOUT_ERROR, LOGOUT_START, LOGOUT_SUCCESS,
     REGISTER_ERROR,
     REGISTER_START,
     REGISTER_SUCCESS
 } from "./actionTypes";
 
-export const getTodos = (data) => ({
-    type: GET_TODOS,
+export const getItems = (data) => ({
+    type: GET_ITEMS,
     payload: data
 });
 
 export const getLoading = () => ({
-    type: LOADING_TODOS
+    type: LOADING_ITEMS
 });
 
 export const getError = (e) => ({
-    type: ERROR_TODOS,
+    type: ERROR_ITEMS,
     payload: e.toString()
 });
 

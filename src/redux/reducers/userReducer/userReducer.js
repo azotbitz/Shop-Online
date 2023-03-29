@@ -59,14 +59,14 @@ export const userReducer = (state = initialState, action) => {
     }
 }
 
- export const registerInitiate = (email, password, date) => {
+ export const registerInitiate = (email, password, dateOfBirth) => {
     return (dispatch) => {
         dispatch(registerStart())
         auth
-            .createUserWithEmailAndPassword(email, password)
+            .createUserWithEmailAndPassword(email, password, dateOfBirth)
             .then(({user}) => {
                 user.updateProfile({
-                    date
+                    email
                 })
                 dispatch(registerSuccess(user))
             })

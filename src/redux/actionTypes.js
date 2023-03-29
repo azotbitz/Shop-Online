@@ -4,9 +4,9 @@ export const DELETE_CHAT = "DELETE_CHAT";
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 
-export const GET_TODOS = 'GET_TODOS';
-export const LOADING_TODOS = 'LOADING_TODOS';
-export const ERROR_TODOS = 'ERROR_TODOS';
+export const GET_ITEMS = 'GET_ITEMS';
+export const LOADING_ITEMS = 'LOADING_ITEMS';
+export const ERROR_ITEMS = 'ERROR_ITEMS';
 
 export const REGISTER_START = 'REGISTER_START';
 export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
