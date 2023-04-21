@@ -5,59 +5,72 @@ import Payment from "./Payment";
 import Menu from "./Menu";
 import Registration from "./Registration";
 import Login from "./Login";
+import {useDispatch, useSelector} from "react-redux";
+import {userSelector} from "../redux/reducers/userReducer/userSelector";
+import {logoutInitiate} from "../redux/reducers/userReducer/userReducer";
+import {useNavigate} from "react-router-dom";
+import {searchItems} from "../redux/reducers/itemsReducer/itemsReducer";
 
 const Header = () => {
+    const user = useSelector(userSelector)
+    const name = user ? user.multiFactor.user.email.match(new RegExp("^[^@]*")) : 'Войти'
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const [query, setQuery] = useState('')
 
     useEffect(() => {
-        let pop__up_btn = document.querySelectorAll(".pop-up_btn");
-        pop__up_btn.forEach((e) => {
-            e.addEventListener("click", () => {
-                const pop__up = document.querySelector(`.${e.dataset.popUpName}`);
-                let status = Number(e.dataset.popUpStatus);
-                let result = status
-                    ? (pop__up.style.display = "flex")
-                    : (pop__up.style.display = "none");
-            });
-        })
+        setTimeout(() => {
+            let pop__up_btn = document.querySelectorAll(".pop-up_btn");
+            pop__up_btn.forEach((e) => {
+                e.addEventListener("click", () => {
+                    const pop__up = document.querySelector(`.${e.dataset.popUpName}`);
+                    let status = Number(e.dataset.popUpStatus);
+                    let result = status
+                        ? (pop__up.style.display = "flex")
+                        : (pop__up.style.display = "none");
+                });
+            })
 
-        let subjects = document.querySelectorAll(`.pop-up`);
-        subjects.forEach(subject => {
-            if (subject != null) {
-                if (subject.addEventListener) {
-                    if ("onwheel" in document) {
-                        // IE9+, FF17+, Ch31+
-                        subject.addEventListener("wheel", onWheel);
-                    } else if ("onmousewheel" in document) {
-                        // устаревший вариант события
-                        subject.addEventListener("mousewheel", onWheel);
+            let subjects = document.querySelectorAll(`.pop-up`);
+            subjects.forEach(subject => {
+                if (subject != null) {
+                    if (subject.addEventListener) {
+                        if ("onwheel" in document) {
+                            // IE9+, FF17+, Ch31+
+                            subject.addEventListener("wheel", onWheel);
+                        } else if ("onmousewheel" in document) {
+                            // устаревший вариант события
+                            subject.addEventListener("mousewheel", onWheel);
+                        } else {
+                            // Firefox < 17
+                            subject.addEventListener("MozMousePixelScroll", onWheel);
+                        }
                     } else {
-                        // Firefox < 17
-                        subject.addEventListener("MozMousePixelScroll", onWheel);
+                        // IE8-
+                        subject.attachEvent("onmousewheel", onWheel);
                     }
-                } else {
-                    // IE8-
-                    subject.attachEvent("onmousewheel", onWheel);
-                }
 
-                function vhToPixels(vh) {
-                    return Math.round(window.innerHeight / (100 / vh));
-                }
+                    function vhToPixels(vh) {
+                        return Math.round(window.innerHeight / (100 / vh));
+                    }
 
-                let side = 0;
-                function onWheel(e) {
-                    e = e || window.event;
-                    let delta = e.deltaY || e.detail || e.wheelDelta;
-                    let info = document.getElementById("delta");
-                    if (delta > 0 &&
-                        side > (subject.clientHeight - vhToPixels(100) - 40) * -1) {
-                        side -= 80;}
-                    if (delta < 0 && side < 0) {
-                        side += 80;}
-                    subject.style.top = side + "px";
-                    e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+                    let side = 0;
+                    function onWheel(e) {
+                        e = e || window.event;
+                        let delta = e.deltaY || e.detail || e.wheelDelta;
+                        let info = document.getElementById("delta");
+                        if (delta > 0 &&
+                            side > (subject.clientHeight - vhToPixels(100) - 40) * -1) {
+                            side -= 80;}
+                        if (delta < 0 && side < 0) {
+                            side += 80;}
+                        subject.style.top = side + "px";
+                        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+                    }
                 }
-            }
-        })
+            })
+        }, 600)
+
 
 
     })
@@ -113,13 +126,22 @@ const Header = () => {
     };
 
     const handleSubmitLogout = () => {
-        //     if(user) {
-        //         dispatch(logoutInitiate())
-        //     }
-        //     setTimeout(() => {
-        //         navigate('/login')
-        //     }, 1000);
+            if(user) {
+                dispatch(logoutInitiate())
+            }
+            setTimeout(() => {
+                navigate('/')
+            }, 1000);
     };
+
+    const handleSearch = (query) => {
+        if(query !== ''){
+            console.log(query)
+        dispatch(searchItems(query))
+        setTimeout(() => {
+            navigate('/search')
+        },300)
+    }}
 
     return (
         <>
@@ -141,7 +163,7 @@ const Header = () => {
                     <div className="desktop-nav">
                         <div className="w-100 d-flex">
                             <div className="logotype d-flex justify-content-center align-items-center">
-                                <a href="/"><img src="./assets/imgs/logotype.svg" alt="logotype"
+                                <a href="/"><img style={{borderRadius: '706px'}} src="../assets/imgs/logotype-blue.jpg" alt="logotype"
                                                  className="logotype--img"/></a>
                             </div>
                             <div className="nav">
@@ -156,32 +178,32 @@ const Header = () => {
                                             <ul className="ul--reset">
                                                 <li>
                                                     <label className="custom-radio pointer me-4">
-                                                        <input type="radio" value="Абакан" name="city"/>
-                                                        <span>Абакан</span>
+                                                        <input type="radio" value="Москва" name="city"/>
+                                                        <span>Москва</span>
                                                     </label>
                                                 </li>
                                                 <li className="mt-2">
                                                     <label className="custom-radio pointer me-4">
-                                                        <input type="radio" value="Азов" name="city"/>
-                                                        <span>Азов</span>
+                                                        <input type="radio" value="Санкт-Петербург" name="city"/>
+                                                        <span>Санкт-Петербург</span>
                                                     </label>
                                                 </li>
                                                 <li className="mt-2">
                                                     <label className="custom-radio pointer me-4">
-                                                        <input type="radio" value="Александров" name="city"/>
-                                                        <span>Александров</span>
+                                                        <input type="radio" value="Казань" name="city"/>
+                                                        <span>Казань</span>
                                                     </label>
                                                 </li>
                                                 <li className="mt-2">
                                                     <label className="custom-radio pointer me-4">
-                                                        <input type="radio" value="Алексин" name="city"/>
-                                                        <span>Алексин</span>
+                                                        <input type="radio" value="Ростов-на-Дону" name="city"/>
+                                                        <span>Ростов-на-Дону</span>
                                                     </label>
                                                 </li>
                                                 <li className="mt-2">
                                                     <label className="custom-radio pointer me-4">
-                                                        <input type="radio" value="Альметьевск" name="city"/>
-                                                        <span>Альметьевск</span>
+                                                        <input type="radio" value="Сочи" name="city"/>
+                                                        <span>Сочи</span>
                                                     </label>
                                                 </li>
                                                 <li className="mt-2">
@@ -194,19 +216,33 @@ const Header = () => {
                                         </div>
                                     </div>
                                     <a href="/selections"
-                                       className="header--btn selection"><span>Подборки</span></a>
-                                    <a href="#" className="header--btn bals">1210</a>
-                                    <a href="#" className="header--btn notifications pop-up_btn" data-pop-up-status='1'
-                                       data-pop-up-name="wrapper--message">У</a>
-                                    <a href="#" className="header--btn basket pop-up_btn" data-pop-up-status='1'
-                                       data-pop-up-name="wrapper--basket">К</a>
-                                    <a href="#" className="header--btn phone">
-                                        <img src="./assets/imgs/phone.svg" alt="phone" className="header--btn-image"/>
+                                       className="header--btn selection">Каталог товаров</a>
+                                    <a href="#" className="header--btn booking">Срочный заказ</a>
+                                    <a href="#"
+                                       className="header--btn instagram">
+                                        <img src="../assets/imgs/instagram.svg" alt="instagram"
+                                             className="header--btn-image"/></a>
+                                    <a href="#"
+                                       className="header--btn whatsapp">
+                                        <img src="../assets/imgs/whatsapp.svg" alt="whatsapp"
+                                             className="header--btn-image"/></a>
+                                    <a href="#" className="header--btn vk">
+                                        <img src="../assets/imgs/vk.svg" alt="vk" className="header--btn-image"/></a>
+                                    <a href="#" className="header--btn telegram">
+                                        <img src="../assets/imgs/telegram.svg" alt="telegram"
+                                             className="header--btn-image"/></a>
+                                    <a href="#" className="header--btn viber">
+                                        <img src="../assets/imgs/viber.svg" alt="viber" className="header--btn-image"/>
                                     </a>
-                                    <a href="/search" className="header--btn search">
-                                        <img src="./assets/imgs/search.svg" alt="search" className="header--btn-image"/>
-                                    </a>
-                                    <a href="#" className="header--btn burger pop-up_btn" data-pop-up-status='1'
+                                    <a onClick={() => handleSubmitLogout} style={{width: '8%'}} href="#" className="header--btn account pop-up_btn" data-pop-up-status='1'
+                                       data-pop-up-name="wrapper--login">{name}</a>
+                                </div>
+                                <div className="nav--row pt-2">
+
+                                    <a style={{width: '14%'}} href="#" className="header--btn notifications pop-up_btn" data-pop-up-status='1'
+                                       data-pop-up-name="wrapper--message">Уведомление</a>
+
+                                    <a style={{width: '9%'}} href="#" className="header--btn burger pop-up_btn" data-pop-up-status='1'
                                        data-pop-up-name="wrapper--menu">
                                         <span className="burger--text">Меню</span>
                                         <div className="burger--lines">
@@ -215,34 +251,32 @@ const Header = () => {
                                             <span></span>
                                         </div>
                                     </a>
-                                    <a href="#" className="header--btn account pop-up_btn" data-pop-up-status='1'
-                                       data-pop-up-name="wrapper--login">А</a>
-                                </div>
-                                <div className="nav--row pt-2">
-                                    <a href="/toWhom" className="header--btn constructor"><span>Виртуальный флорист</span></a>
-                                    <a href="#" className="header--btn florist"><span>Cоздать букет</span></a>
-                                    <a href="#" className="header--btn booking">Срочный заказ</a>
                                     <a href="#" className="header--btn car pop-up_btn" data-pop-up-status='1'
                                        data-pop-up-name="wrapper--payment">
                                         <img src="./assets/imgs/speedcar-icon.svg" alt="speedcar"/>
                                     </a>
-
-                                    <a href="https://www.instagram.com/beehappy24.ru/"
-                                       className="header--btn instagram">
-                                        <img src="../assets/imgs/instagram.svg" alt="instagram"
-                                             className="header--btn-image"/></a>
-                                    <a href="https://wa.me/79891970713?text=Мне%20нужен%20букет%20index"
-                                       className="header--btn whatsapp">
-                                        <img src="../assets/imgs/whatsapp.svg" alt="whatsapp"
-                                             className="header--btn-image"/></a>
-                                    <a href="https://vk.com/id596874506" className="header--btn vk">
-                                        <img src="../assets/imgs/vk.svg" alt="vk" className="header--btn-image"/></a>
-                                    <a href="https://tlgg.ru/beehappy24ru" className="header--btn telegram">
-                                        <img src="../assets/imgs/telegram.svg" alt="telegram"
-                                             className="header--btn-image"/></a>
-                                    <a href="viber://add?number=79891970713" className="header--btn viber">
-                                        <img src="../assets/imgs/viber.svg" alt="viber" className="header--btn-image"/>
+                                    <a style={{width: '10%'}} href="#" className="header--btn phone">
+                                        <img src="./assets/imgs/phone.svg" alt="phone" className="header--btn-image"/>
                                     </a>
+                                    <form className="header--btn search" style={{width: '10%'}} onSubmit={() => handleSearch(query)}>
+                                        <label htmlFor="search-form" style={{width: '75%', display: 'contents'}}>
+                                            <input type="search"
+                                                   name="search-form"
+                                                   id="search-form"
+                                                   onChange={(e) => setQuery(e.target.value)}
+                                                   placeholder={'  Найти'}
+                                                   style={{width: '73%', backgroundColor: 'inherit',
+                                                    borderRadius: '25px',
+                                                    borderColor: 'azure', marginRight: '3px'}}/>
+                                            <button type={'submit'} style={{height: '21px',
+                                                width: '21px',
+                                                borderRadius: '10px', backgroundSize: 'cover',
+                                                backgroundPosition: 'center',
+                                                backgroundRepeat: "no-repeat", background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url(./assets/imgs/search.svg)'}} className="header--btn-image"/>
+                                        </label>
+                                    </form>
+                                    <a style={{width: '8%'}} href="#" className="header--btn basket pop-up_btn" data-pop-up-status='1'
+                                       data-pop-up-name="wrapper--basket">Корзина</a>
                                 </div>
                             </div>
                         </div>

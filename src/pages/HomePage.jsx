@@ -1,16 +1,42 @@
-import React from "react";
+import React, {useEffect} from "react";
 import SwiperCore, { Navigation, Pagination} from "swiper";
 import {Swiper, SwiperSlide} from 'swiper/react';
 
 
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
+import {useDispatch, useSelector} from "react-redux";
+import {error, getItemsSelector, loader} from "../redux/reducers/itemsReducer/itemsSelector";
+import {loadItems} from "../redux/reducers/itemsReducer/itemsReducer";
 
 SwiperCore.use([Navigation, Pagination]);
 
 
 export const HomePage = () => {
 
+    const items = useSelector(getItemsSelector)
+    const dispatch = useDispatch()
+    const loading = useSelector(loader)
+    const err = useSelector(error)
+
+    useEffect(() => {
+        dispatch(loadItems())
+    }, [])
+
+    if(loading) {
+        return (
+            <div><h2>Loading</h2></div>
+        )
+    }
+
+    if(err) {
+        return (
+            <div>
+                <h2>Ошибка</h2>
+                <button onClick={() => dispatch(loadItems())}>Перезагрузить страницу</button>
+            </div>
+        )
+    }
 
     return (
         <>
@@ -109,20 +135,20 @@ export const HomePage = () => {
                         className={"swiper blocks d-flex align-items-center"}
                     >
                         <div className={"swiper-wrapper d-flex align-items-center"}>
-                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/freenudesboy.jpg")', height: '350px', backgroundSize: 'cover',
+                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/freenudesboy.jpg")', height: '550px', backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: "no-repeat"}}>
-                            Конструктор букетов
+                            Свежие поставки
                         </SwiperSlide>
-                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/speedcar.jpg")', height: '350px', backgroundSize: 'cover',
+                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/speedcar.jpg")', height: '550px', backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: "no-repeat"}}>
                             Срочный заказ
                         </SwiperSlide>
-                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/constructor.jpg")', height: '350px', backgroundSize: 'cover',
+                        <SwiperSlide className={"swiper-slide card--product d-flex justify-content-center align-items-end pb-4"} style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/constructor.jpg")', height: '550px', backgroundSize: 'cover',
                             backgroundPosition: 'center',
                             backgroundRepeat: "no-repeat"}}>
-                            Букет на вкус флориста
+                            Привезем быстрее всех
                         </SwiperSlide>
                         </div>
                         <div className="swiper-pagination"></div>
@@ -133,7 +159,7 @@ export const HomePage = () => {
 
             <div className="slider slider-perfect">
                 <div className="container-fluid container-md container-lg container-xl container-xxl position-relative">
-                    <p className="text-white mt-5 headlines">Идеально к букету</p>
+                    <p className="text-white mt-5 headlines">Выбирай технику</p>
                     <Swiper
                         direction={'horizontal'}
                         loop={true}
@@ -178,90 +204,24 @@ export const HomePage = () => {
                               }}
                             className="swiper perfect-s d-flex align-items-center">
                         <div className="swiper-wrapper d-flex align-items-center">
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-1.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-2.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-3.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-4.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-5.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-6.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide
-                                className="swiper-slide card--product d-flex justify-content-center align-items-center">
-                                <div
-                                    className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                    <div className="card--content card--image mb-3"
-                                         style={{backgroundImage: 'url("./assets/imgs/flower-7.jpeg")'}}></div>
-                                    <div
-                                        className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                        <p className="m-0">Кустовая роза</p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
+                            {items.slice(0, 7).map((item) => {
+                                return (
+                                    <SwiperSlide
+                                        className="swiper-slide card--product d-flex justify-content-center align-items-center">
+                                        <div
+                                            className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
+                                            <div className="card--content card--image mb-3"
+                                                 style={{backgroundImage: `url(${item.thumbnail})`}}></div>
+                                            <div
+                                                className="card--title d-flex justify-content-center align-items-center flex-column w-100">
+                                                <p className="m-0 align-items-center">{item.brand}</p>
+                                                <p style={{textAlign: "center"}} className="m-0 align-items-center">{item.title}</p>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                )
+                            })}
+
                         </div>
                         <div className="swiper-pagination"></div>
 
@@ -281,12 +241,12 @@ export const HomePage = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            <h3 className="text-white mt-5 headlines">Подборки</h3>
+                            <h3 className="text-white mt-5 headlines">Последние скидки</h3>
                         </div>
                     </div>
                 </div>
                 <div className="container-fluid container-md container-lg container-xl container-xxl position-relative">
-                    <p className="text-white mt-5 headlines">Монобукеты</p>
+                    <p className="text-white mt-5 headlines">Косметика</p>
                     <div>
                         <Swiper
                             direction={'horizontal'}
@@ -335,80 +295,25 @@ export const HomePage = () => {
                             className="swiper selections selections-1 d-flex align-items-center">
 
                             <div className="swiper-wrapper d-flex">
+                                {items.slice(15, 20).map((item) => {
+                                    return (
+                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
+                                    <div
+                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
+                                        <div className="card--content card--image mb-3"
+                                             style={{background: `linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${item.thumbnail})`, backgroundSize: 'cover',
+                                                 backgroundPosition: 'center',
+                                                 backgroundRepeat: "no-repeat"}}>
+                                        </div>
+                                        <div
+                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
+                                            <p className="m-0 align-items-center">{item.brand}</p>
+                                            <p style={{textAlign: "center"}} className="m-0 align-items-center">{item.title}</p>
+                                        </div>
+                                    </div>
+                                </SwiperSlide>
+                                        )})}
 
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/box-flower-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                {/*    <div className="slider--card card--product d-flex justify-content-center align-items-center flex-column card--product-100_150 p-3">*/}
-                                {/*    123*/}
-                                {/*</div>*/}
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/box-flower-3.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/basket-flower-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/box-nuts-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/basket-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
                             </div>
                             <div className="swiper-pagination"></div>
 
@@ -426,7 +331,7 @@ export const HomePage = () => {
 
             <div className="slider slider-selections slider-selection-2">
                 <div className="container-fluid container-md container-lg container-xl container-xxl position-relative">
-                    <p className="text-white mt-5 headlines">Группа подборок 2</p>
+                    <p className="text-white mt-5 headlines">Парфюмерия</p>
                 <div>
                         <Swiper
                             direction={'horizontal'}
@@ -475,80 +380,24 @@ export const HomePage = () => {
                             className="swiper selections selections-1 d-flex align-items-center">
 
                             <div className="swiper-wrapper d-flex">
-
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url("./assets/imgs/box-flower-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                    {/*    <div className="slider--card card--product d-flex justify-content-center align-items-center flex-column card--product-100_150 p-3">*/}
-                                    {/*    123*/}
-                                    {/*</div>*/}
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/box-flower-3.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/basket-flower-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/box-nuts-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
-                                    <div
-                                        className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
-                                        <div className="card--content card--image mb-3"
-                                             style={{background: 'linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)),url("./assets/imgs/basket-1.png")', backgroundSize: 'cover',
-                                                 backgroundPosition: 'center',
-                                                 backgroundRepeat: "no-repeat"}}>
-                                        </div>
-                                        <div
-                                            className="card--title d-flex justify-content-center align-items-center flex-column w-100">
-                                            <p className="m-0">Кустовая роза</p>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
+                                {items.slice(10, 15).map((item) => {
+                                    return (
+                                        <SwiperSlide className="swiper-slide d-flex justify-content-center align-items-center">
+                                            <div
+                                                className="slider--card d-flex justify-content-center align-items-center flex-column p-3">
+                                                <div className="card--content card--image mb-3"
+                                                     style={{background: `linear-gradient(to right, rgba(0,0,0,.3),rgba(0,0,0,.3)), url(${item.thumbnail})`, backgroundSize: 'cover',
+                                                         backgroundPosition: 'center',
+                                                         backgroundRepeat: "no-repeat"}}>
+                                                </div>
+                                                <div
+                                                    className="card--title d-flex justify-content-center align-items-center flex-column w-100">
+                                                    <p className="m-0 align-items-center">{item.brand}</p>
+                                                    <p style={{textAlign: "center"}} className="m-0 align-items-center">{item.title}</p>
+                                                </div>
+                                            </div>
+                                        </SwiperSlide>
+                                    )})}
                             </div>
                             <div className="swiper-pagination"></div>
 

@@ -4,10 +4,10 @@ const Payment = () => {
     return (
         <>
             <div className='wrapper--payment' id='popup--payment' style={{display: 'none'}}>
-                <div className="pop-up popup--payment">
+                <div className="pop-up d-flex popup--payment">
                     <div className="message text-center">
                         <div className="popup--closed pop-up_btn d-flex justify-content-center pointer align-items-center" data-pop-up-status='0'
-                             data-pop-up-name="popup--payment">
+                             data-pop-up-name="wrapper--payment">
                             <div className="cross">
                                 <div className="md"></div>
                             </div>

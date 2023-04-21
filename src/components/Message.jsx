@@ -4,7 +4,7 @@ const Message = () => {
     return (
         <>
             <div className='wrapper--message' id="popup--message" style={{display: "none"}}>
-                <div className="pop-up popup--message">
+                <div className="pop-up d-flex popup--message">
                     <div className="message text-center">
                         <h4 className="pb-4">Уважаемые покупатели </h4>
                         <span>ДОСТАВКА ПО ГОРОДУ БЕСПЛАТНАЯ</span>

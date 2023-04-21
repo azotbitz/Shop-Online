@@ -499,6 +499,25 @@ textarea {
   resize: vertical;
 }
 
+::-webkit-input-placeholder {
+  color: darkgrey;
+  text-align: center;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: darkgrey;
+  text-align: center;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: darkgrey;
+  text-align: center;
+}
+:-ms-input-placeholder {
+  color: darkgrey;
+  text-align: center;
+}
+
 fieldset {
   min-width: 0;
   padding: 0;
@@ -12368,7 +12387,7 @@ textarea.form-control-lg {
 
 .selections--page .card--product--wrapper {
   display: grid;
-  grid-template-columns: repeat(4, calc(25% - 30px));
+  grid-template-columns: repeat(5, calc(20% - 30px));
   grid-gap: 40px;
   height: auto;
 }
@@ -12520,10 +12539,11 @@ textarea.form-control-lg {
 }
 
 .main--image--card--product {
-  height: 500px;
+  height: auto;
 }
 
 .old--price {
+  padding-left: 8px;
   font-size: 14px;
   color: #ffc107;
   text-decoration: line-through;
@@ -13206,7 +13226,7 @@ textarea.form-control-lg {
 }
 @media (max-width: 1200px) {
   .card--product--wrapper {
-    grid-template-columns: repeat(3, calc(33% - 30px)) !important;
+    grid-template-columns: repeat(4, calc(25% - 30px)) !important;
   }
 }
 @media (max-width: 1024px) {
@@ -13225,7 +13245,7 @@ textarea.form-control-lg {
     width: 100%;
   }
   .card--product--wrapper {
-    grid-template-columns: repeat(2, calc(50% - 30px)) !important;
+    grid-template-columns: repeat(3, calc(33% - 30px)) !important;
   }
   .ps-c-5 {
     padding-left: 0px;
@@ -13290,7 +13310,7 @@ textarea.form-control-lg {
   }
   .card--product--wrapper {
     justify-content: center;
-    grid-template-columns: repeat(1, calc(60% - 30px)) !important;
+    grid-template-columns: repeat(2, calc(50% - 30px)) !important;
   }
   .wrapper--basket .shop--basket {
     padding: 15px;
@@ -13342,7 +13362,7 @@ textarea.form-control-lg {
   }
   .card--product--wrapper {
     justify-content: center;
-    grid-template-columns: repeat(1, calc(80% - 30px)) !important;
+    grid-template-columns: repeat(1, calc(60% - 30px)) !important;
   }
   .card--product--wrapper .card--title {
     width: 100% !important;
@@ -13350,6 +13370,6 @@ textarea.form-control-lg {
 }
 @media (max-width: 385px) {
   .card--product--wrapper {
-    grid-template-columns: repeat(1, calc(100% - 30px)) !important;
+    grid-template-columns: repeat(1, calc(80% - 30px)) !important;
   }
 }/*# sourceMappingURL=style.css.map */

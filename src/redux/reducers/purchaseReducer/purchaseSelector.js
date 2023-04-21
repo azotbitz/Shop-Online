@@ -1,0 +1,1 @@
+export const getPurchasesSelector = state => state.purchases.purchaseList

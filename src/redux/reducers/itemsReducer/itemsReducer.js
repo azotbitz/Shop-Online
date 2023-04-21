@@ -1,18 +1,17 @@
 import {ERROR_ITEMS, GET_ITEMS, LOADING_ITEMS} from "../../actionTypes";
-import {getError, getLoading, getItems} from "../../actions";
+import {getError, getLoading, getItems, getSearchItems} from "../../actions";
 
 const initialState = {
     itemsList: [],
     loader: false,
     error: null
 };
-
 export const itemsReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_ITEMS:
             return {
                 ...state,
-                todosList: action.payload,
+                itemsList: action.payload,
                 loader: false
             }
         case LOADING_ITEMS:
@@ -35,13 +34,32 @@ export const loadItems = () => {
     return async dispatch => {
         dispatch(getLoading())
         try {
-            const response = await fetch("https://dummyjson.com/todos");
+            const response = await fetch("https://dummyjson.com/products");
             if (!response.ok) {
                 throw new Error(`Request failed with status ${response.status}`);
             }
+
             const dataMid = await response.json();
-            const data = dataMid.todos
+            const data = dataMid.products
             dispatch(getItems(data))
+        } catch (e) {
+            dispatch(getError(e))
+        }
+    }
+}
+
+export const searchItems = (query) => {
+    return async dispatch => {
+        dispatch(getLoading())
+        try {
+            const response = await fetch(`https://dummyjson.com/products/search?q=${query}`);
+            if (!response.ok) {
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+
+            const dataMid = await response.json();
+            const data = dataMid.products
+            dispatch(getSearchItems(data))
         } catch (e) {
             dispatch(getError(e))
         }

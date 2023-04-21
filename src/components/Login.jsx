@@ -11,17 +11,22 @@ const Login = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(user){
-            document.querySelector('#popup--login').style.display = 'none';
-        }
-    },[user])
+        if(user) {
+            const name = user.multiFactor.user.email.match(new RegExp("^[^@]*"))
+            alert(name + ' вошел на сайт успешно!')
 
+        }
+    }, [user, dispatch])
     const handleSubmitLogin = (e) => {
         e.preventDefault()
         if(!email || ! password) {
             return;
         }
         dispatch(loginInitiate(email, password))
+        setTimeout(() => {
+            document.querySelector('.wrapper--login').style.display = 'none'
+        }, 1000)
+
     }
 
 
@@ -60,8 +65,8 @@ const Login = () => {
                         <img src="" alt=""/>
                         Войти с помощью аккаунта VK
                     </button>
-                    <a className="mt-4 text-white">Забыли пароль?</a>
-                    <p className="mt-4 text-white">Нет учётной записи ?
+                    <a className="mt-4 text-white text-decoration-none">Забыли пароль?</a>
+                    <p className="mt-4 text-white text-decoration-none">Нет учётной записи ?
                         <a href="#" className="text-white pop-up_btn"
                            data-pop-up-status='1'
                            data-pop-up-name="popup--registration">Зарегистрироваться

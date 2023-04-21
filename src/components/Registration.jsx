@@ -25,7 +25,8 @@ const Registration = () => {
             alert('Password Invalid')
             return;
         }
-        dispatch(registerInitiate(email, password, dateOfBirth))
+        const photoURL = '../public/assets/imgs/user.png'
+        dispatch(registerInitiate(email, password, photoURL))
         document.querySelector('#popup--registration').style.display = 'none'
     }
 

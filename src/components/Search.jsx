@@ -1,18 +1,29 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {getItemsSelector} from "../redux/reducers/itemsReducer/itemsSelector";
+import {useDispatch, useSelector} from "react-redux";
+import {searchItems} from "../redux/reducers/itemsReducer/itemsReducer";
 
 const Search = (props) => {
 
     const items = props;
-
     const [query, setQuery] = useState("");
-
+    const [filter, setFilter] = useState("");
     const data = Object.values(items);
-
     const search_parameters = Object.keys(Object.assign({}, ...data));
+    const dispatch = useDispatch()
+    const searchItemsBasket = useSelector(getItemsSelector)
 
-    function search (data) {
+    useEffect(() => {
+        if(query !== '') {
+            dispatch(searchItems(query))
+        }
+
+    },[dispatch])
+
+    function search(items) {
         return items.filter(
             (item) =>
+                item.region.includes(filter) &&
                 search_parameters.some((parameter) =>
                     item[parameter].toString().toLowerCase().includes(query)
                 )
@@ -40,7 +51,6 @@ const Search = (props) => {
                 {/*            </div>*/}
                 {/*            <div className="card-content">*/}
                 {/*                <h2 className="card-name">{item.name}</h2>*/}
-                {/*                ...*/}
                 {/*            </div>*/}
                 {/*        </article>*/}
                 {/*    </li>*/}

@@ -1,12 +1,17 @@
 import {
-    ERROR_ITEMS,
-    GET_ITEMS,
-    LOADING_ITEMS, LOGIN_ERROR,
+    ERROR_ITEMS, ERROR_PURCHASES, ERROR_SHOPPING_BASKET,
+    GET_ITEMS, GET_SEARCH_ITEMS, GET_SHOPPING_BASKET,
+    LOADING_ITEMS, LOADING_SHOPPING_BASKET, LOGIN_ERROR,
     LOGIN_START, LOGIN_SUCCESS, LOGOUT_ERROR, LOGOUT_START, LOGOUT_SUCCESS,
     REGISTER_ERROR,
     REGISTER_START,
     REGISTER_SUCCESS
 } from "./actionTypes";
+
+export const getSearchItems = (data) => ({
+    type: GET_SEARCH_ITEMS,
+    payload: data
+});
 
 export const getItems = (data) => ({
     type: GET_ITEMS,
@@ -19,6 +24,25 @@ export const getLoading = () => ({
 
 export const getError = (e) => ({
     type: ERROR_ITEMS,
+    payload: e.toString()
+});
+
+export const getErrorPurchases = (e) => ({
+    type: ERROR_PURCHASES,
+    payload: e.toString()
+});
+
+export const getShoppingBasket = (data) => ({
+    type: GET_SHOPPING_BASKET,
+    payload: data
+});
+
+export const getLoadingShoppingBasket = () => ({
+    type: LOADING_SHOPPING_BASKET
+});
+
+export const getErrorShoppingBasket = (e) => ({
+    type: ERROR_SHOPPING_BASKET,
     payload: e.toString()
 });
 

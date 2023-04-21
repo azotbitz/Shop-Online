@@ -3,13 +3,13 @@ import 'firebase/compat/database';
 import 'firebase/compat/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyApSiNWOCgRObPMCOe8G03HB_Vzlo-YmhI",
-    authDomain: "azot-bitz-app.firebaseapp.com",
-    databaseURL: "https://azot-bitz-app-default-rtdb.firebaseio.com",
-    projectId: "azot-bitz-app",
-    storageBucket: "azot-bitz-app.appspot.com",
-    messagingSenderId: "92180241050",
-    appId: "1:92180241050:web:314efc303169fbe196dd23"
+    apiKey: "AIzaSyC8zBixUGCTktwnFsMuL8a_CSa3pTcQOgU",
+    authDomain: "my-online-shop1.firebaseapp.com",
+    databaseURL: "https://my-online-shop1-default-rtdb.firebaseio.com",
+    projectId: "my-online-shop1",
+    storageBucket: "my-online-shop1.appspot.com",
+    messagingSenderId: "795262787456",
+    appId: "1:795262787456:web:550eceaa3e99c2b8cc2b65"
 };
 
 const firebaseDB = firebase.initializeApp(firebaseConfig);

@@ -3,6 +3,8 @@ import {createLogger} from "redux-logger/src";
 import thunk from "redux-thunk";
 import {userReducer} from "./reducers/userReducer/userReducer";
 import {itemsReducer} from "./reducers/itemsReducer/itemsReducer";
+import {basketReducer} from "./reducers/basketReducer/basketReducer";
+import {purchaseReducer} from "./reducers/purchaseReducer/purchaseReducer";
 
 const logger = createLogger({
     collapsed: true,
@@ -10,8 +12,8 @@ const logger = createLogger({
 })
 
 const rootReducer = combineReducers({
-    // chats: chatsReducer,
-    // messages: messagesReducer,
+    shoppingBaskets: basketReducer,
+    purchases: purchaseReducer,
     items: itemsReducer,
     users: userReducer
 })

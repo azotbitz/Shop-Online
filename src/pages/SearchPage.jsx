@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import React, {useEffect, useState} from 'react';
 import {getItemsSelector} from "../redux/reducers/itemsReducer/itemsSelector"
 import {loader, error} from "../redux/reducers/itemsReducer/itemsSelector";
 import {loadItems} from "../redux/reducers/itemsReducer/itemsReducer";
@@ -12,9 +12,9 @@ const SearchPage = () => {
     const loading = useSelector(loader);
     const err = useSelector(error);
 
-        useEffect(() => {
-            dispatch(loadItems())}, []
-        )
+    useEffect(() => {
+        dispatch(loadItems())}, []
+    )
 
         if(loading) {
             return (
@@ -31,7 +31,11 @@ const SearchPage = () => {
             )
         }
 
-    const data = Object.values(items);
+     items.map((item) => {
+         console.log(item.brand)
+     })
+
+
     return (
         <>
             <div className="container">
@@ -41,7 +45,7 @@ const SearchPage = () => {
                     </div>
                 </div>
                 <Search items={items}/>
-                <Filter items={items}/>
+                {/*<Filter items={items}/>*/}
             </div>
             {/*<div className="wrapper">*/}
             {/*    <ul className="card-grid">*/}
