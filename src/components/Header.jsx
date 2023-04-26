@@ -71,8 +71,6 @@ const Header = () => {
             })
         }, 600)
 
-
-
     })
 
     useEffect(() => {
@@ -134,9 +132,9 @@ const Header = () => {
             }, 1000);
     };
 
-    const handleSearch = (query) => {
+    const handleSearch = (event) => {
+        event.preventDefault()
         if(query !== ''){
-            console.log(query)
         dispatch(searchItems(query))
         setTimeout(() => {
             navigate('/search')
@@ -258,7 +256,7 @@ const Header = () => {
                                     <a style={{width: '10%'}} href="#" className="header--btn phone">
                                         <img src="./assets/imgs/phone.svg" alt="phone" className="header--btn-image"/>
                                     </a>
-                                    <form className="header--btn search" style={{width: '10%'}} onSubmit={() => handleSearch(query)}>
+                                    <form className="header--btn search" style={{width: '10%'}} onSubmit={handleSearch}>
                                         <label htmlFor="search-form" style={{width: '75%', display: 'contents'}}>
                                             <input type="search"
                                                    name="search-form"

@@ -13,7 +13,6 @@ const ShoppingBasket = () => {
     const dispatch = useDispatch();
     const loading = useSelector(loader);
     const err = useSelector(error);
-    console.log(basketArray)
 
     useEffect(() => {
         dispatch(loadShoppingBasket())}, [])

@@ -49,7 +49,6 @@ export const loadShoppingBasket = () => {
 
             const dataMid = await response.json();
             const data = dataMid.carts[0].products
-            console.log(data)
             dispatch(getShoppingBasket(data))
         } catch (e) {
             dispatch(getErrorShoppingBasket(e))

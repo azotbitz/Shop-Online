@@ -163,10 +163,6 @@ const SelectionsPage = () => {
 
     return (
         <>
-            {/*product*/}
-
-
-
             <div className="selections--page">
 
             <div className="container">

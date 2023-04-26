@@ -1,4 +1,4 @@
-import {ERROR_ITEMS, GET_ITEMS, LOADING_ITEMS} from "../../actionTypes";
+import {ERROR_ITEMS, GET_ITEMS, GET_SEARCH_ITEMS, LOADING_ITEMS} from "../../actionTypes";
 import {getError, getLoading, getItems, getSearchItems} from "../../actions";
 
 const initialState = {
@@ -25,6 +25,12 @@ export const itemsReducer = (state = initialState, action) => {
                 loader: false,
                 error: action.payload
             }
+        case GET_SEARCH_ITEMS:
+        return {
+            ...state,
+            itemsList: action.payload,
+            loader: false
+        }
         default:
             return state
     }
