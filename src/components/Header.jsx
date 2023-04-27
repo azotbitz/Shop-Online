@@ -166,7 +166,7 @@ const Header = () => {
                             </div>
                             <div className="nav">
                                 <div className="nav--row">
-                                    <div className="select--city header--btn city pointer">
+                                    <div style={{justifyContent: "center"}} className="select--city header--btn city pointer">
                                         <a
                                             className="select text-white text-decoration-none d-flex justify-content-center align-items-center">
                                             <span>Выбрать город</span>
@@ -213,9 +213,17 @@ const Header = () => {
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="/selections"
+                                    <a style={{justifyContent: "center"}} href="/selections"
                                        className="header--btn selection">Каталог товаров</a>
-                                    <a href="#" className="header--btn booking">Срочный заказ</a>
+                                    <a style={{width: '20%'}} href="#" className="header--btn burger pop-up_btn" data-pop-up-status='1'
+                                       data-pop-up-name="wrapper--menu">
+                                        <span className="burger--text">Меню</span>
+                                        <div className="burger--lines">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </div>
+                                    </a>
                                     <a href="#"
                                        className="header--btn instagram">
                                         <img src="../assets/imgs/instagram.svg" alt="instagram"
@@ -237,26 +245,13 @@ const Header = () => {
                                 </div>
                                 <div className="nav--row pt-2">
 
-                                    <a style={{width: '14%'}} href="#" className="header--btn notifications pop-up_btn" data-pop-up-status='1'
+                                    <a style={{width: '20%'}} href="#" className="header--btn notifications pop-up_btn" data-pop-up-status='1'
                                        data-pop-up-name="wrapper--message">Уведомление</a>
-
-                                    <a style={{width: '9%'}} href="#" className="header--btn burger pop-up_btn" data-pop-up-status='1'
-                                       data-pop-up-name="wrapper--menu">
-                                        <span className="burger--text">Меню</span>
-                                        <div className="burger--lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </a>
-                                    <a href="#" className="header--btn car pop-up_btn" data-pop-up-status='1'
+                                    <a style={{width: '20%', marginLeft: '-35px'}} href="#" className="header--btn car pop-up_btn" data-pop-up-status='1'
                                        data-pop-up-name="wrapper--payment">
                                         <img src="./assets/imgs/speedcar-icon.svg" alt="speedcar"/>
                                     </a>
-                                    <a style={{width: '10%'}} href="#" className="header--btn phone">
-                                        <img src="./assets/imgs/phone.svg" alt="phone" className="header--btn-image"/>
-                                    </a>
-                                    <form className="header--btn search" style={{width: '10%'}} onSubmit={handleSearch}>
+                                    <form className="header--btn search" style={{width: '43%', marginLeft: '-35px'}} onSubmit={handleSearch}>
                                         <label htmlFor="search-form" style={{width: '75%', display: 'contents'}}>
                                             <input type="search"
                                                    name="search-form"

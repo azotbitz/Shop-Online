@@ -198,7 +198,7 @@ const SearchPage = () => {
                                         <option value='rating'>По рейтингу</option>
                                     </select>
                                     <span className="focus"></span>
-                                    <button className='btn btn-primary' onClick={() => filterHandle(filter)}>Применить</button>
+                                    <button style={{marginLeft: '10px'}} className='btn btn-primary' onClick={() => filterHandle(filter)}>Применить</button>
                                 </div>
                             </div>
                         </div>

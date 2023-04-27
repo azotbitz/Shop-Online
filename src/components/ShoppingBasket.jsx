@@ -5,6 +5,7 @@ import {DELETE_PURCHASE} from "../redux/actionTypes";
 import {loadShoppingBasket} from "../redux/reducers/basketReducer/basketReducer";
 import {error, loader} from "../redux/reducers/basketReducer/basketSelector";
 import {getPurchasesSelector} from "../redux/reducers/purchaseReducer/purchaseSelector";
+import {useNavigate} from "react-router-dom";
 
 
 const ShoppingBasket = () => {
@@ -13,6 +14,7 @@ const ShoppingBasket = () => {
     const dispatch = useDispatch();
     const loading = useSelector(loader);
     const err = useSelector(error);
+    const navigate = useNavigate()
 
     useEffect(() => {
         dispatch(loadShoppingBasket())}, [])
@@ -28,7 +30,7 @@ const ShoppingBasket = () => {
 
     if(loading) {
         return (
-            <div><h2>Loading</h2></div>
+            <div><h2>Загрузка...</h2></div>
         )
     }
 
@@ -127,7 +129,7 @@ const ShoppingBasket = () => {
                                     </div>
                                 </div>
                                     <div className="d-flex flex-column mt-4">
-                                        <input type="button" value="Перейти к оформлению"
+                                        <input onClick={() => navigate("/ordering")} type="button" value="Перейти к оформлению"
                                                className="text-center white--btn mt-2 ps-2 pe-2"/>
                                     </div>
                                 </div>

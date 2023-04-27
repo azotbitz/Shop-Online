@@ -13,7 +13,7 @@ const Product = (props) => {
     const handleAddToShoppingBasket = (e) => {
         e.preventDefault();
         if(quantity < 1 ){
-            alert('Quantity cannot be below 0!')
+            alert('Количество товара не может быть меньше 1!')
             return;
         }
         dispatch(addPurchase(item.id, quantity, item.thumbnail))
@@ -89,17 +89,17 @@ const Product = (props) => {
                                         <div className="card--interface pb-5">
                                             <div className="d-flex w-100 justify-content-between ">
                                                 <div className="quantity--product">
-                                                    <button onClick={() => setQuantity(prev => prev - 1)}
+                                                    <button style={{backgroundColor: "inherit"}} onClick={() => setQuantity(prev => prev - 1)}
                                                         className="d-flex justify-content-center align-items-center">-</button>
-                                                    <button className="">{quantity}</button>
-                                                    <button onClick={() => setQuantity(prev => prev + 1)} className="d-flex justify-content-center align-items-center">+</button>
+                                                    <button style={{backgroundColor: "inherit"}} className="">{quantity}</button>
+                                                    <button style={{backgroundColor: "inherit"}} onClick={() => setQuantity(prev => prev + 1)} className="d-flex justify-content-center align-items-center">+</button>
                                                 </div>
                                                 <a href="/ordering" className="ms-3 w-75 white--btn text-decoration-none">Купить
                                                     сейчас</a>
                                             </div>
-                                            <button onClick={handleAddToShoppingBasket}>
-                                            <input type="button" value="Добавить в корзину" className="mt-3 w-100 white--btn"/>
-                                            </button>
+
+                                            <input onClick={handleAddToShoppingBasket} type="button" value="Добавить в корзину" className="mt-3 w-100 white--btn"/>
+
                                         </div>
                                     </div>
 

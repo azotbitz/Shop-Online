@@ -146,7 +146,7 @@ const SelectionsPage = () => {
 
     if(loading) {
         return (
-            <div><h2>Loading</h2></div>
+            <div><h2>Загрузка...</h2></div>
         )
     }
 

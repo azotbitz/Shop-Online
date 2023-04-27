@@ -287,7 +287,7 @@ const OrderingPage = () => {
                                       className="input--transparent input--transparent-area mt-4" name="postcard--area"
                                       id="postcard--aria-1" maxLength='400'></textarea>
                             <p className="mt-4">Добавить комментарий</p>
-                            <textarea contentEditable="true" placeholder="Ваш комметарий"
+                            <textarea contentEditable="true" placeholder="Ваш комментарий"
                                       className="input--transparent input--transparent-area mt-4" name="comment--area"
                                       id="comment--aria-1" maxLength='1000'></textarea>
                             <p className="mt-4">Выберите способ оплаты</p>
@@ -306,35 +306,35 @@ const OrderingPage = () => {
                     </div>
                     <div
                         className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 order-1 order-xxl-2 order-xl-2 order-lg-2 order-md-2 order-sm-1">
-                        <div className="shopping--basket">
-                            <div className="basket--product card--product">
-                                <div className="product--image">
-                                    <img src="../assets/imgs/product--image-2.jpg" alt="#"/>
-                                </div>
-                                <div className="product--info d-flex flex-column">
-                                    <span className="product--name">Кустовая роза белая</span>
-                                    <span className="product--price">1999</span>
-                                </div>
-                                <div className="product--interface d-flex justify-content-end">
-                                    <div className="w-100 d-flex justify-content-end">
-                                        <button>
-                                            <img src="../assets/imgs/love--light.svg" alt="love"/>
-                                        </button>
-                                        <button>
-                                            <img src="../assets/imgs/trash.svg" alt="trash"/>
-                                        </button>
-                                    </div>
-                                    <div className="quantity--product mt-2">
-                                        <button
-                                            className="minus d-flex justify-content-center align-items-center">-
-                                        </button>
-                                        <button className="num">0</button>
-                                        <button className="plus d-flex justify-content-center align-items-center">+
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        {/*<div className="shopping--basket">*/}
+                        {/*    <div className="basket--product card--product">*/}
+                        {/*        <div className="product--image">*/}
+                        {/*            <img src="../assets/imgs/product--image-2.jpg" alt="#"/>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="product--info d-flex flex-column">*/}
+                        {/*            <span className="product--name">Кустовая роза белая</span>*/}
+                        {/*            <span className="product--price">1999</span>*/}
+                        {/*        </div>*/}
+                        {/*        <div className="product--interface d-flex justify-content-end">*/}
+                        {/*            <div className="w-100 d-flex justify-content-end">*/}
+                        {/*                <button>*/}
+                        {/*                    <img src="../assets/imgs/love--light.svg" alt="love"/>*/}
+                        {/*                </button>*/}
+                        {/*                <button>*/}
+                        {/*                    <img src="../assets/imgs/trash.svg" alt="trash"/>*/}
+                        {/*                </button>*/}
+                        {/*            </div>*/}
+                        {/*            <div className="quantity--product mt-2">*/}
+                        {/*                <button*/}
+                        {/*                    className="minus d-flex justify-content-center align-items-center">-*/}
+                        {/*                </button>*/}
+                        {/*                <button className="num">0</button>*/}
+                        {/*                <button className="plus d-flex justify-content-center align-items-center">+*/}
+                        {/*                </button>*/}
+                        {/*            </div>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*</div>*/}
                         <div className="tab--content-state">
                             <div className="content--grid">
                                 <div>
